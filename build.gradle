@@ -23,11 +23,6 @@ allprojects {
         maven { name "Alibaba"; url "https://maven.aliyun.com/repository/public" }
         mavenCentral()
     }
-}
-
-subprojects {
-    apply plugin: "java-library"
-    apply plugin: "io.spring.dependency-management"
 
     buildscript {
         ext {
@@ -41,6 +36,11 @@ subprojects {
             nettyVersion = "4.1.86.Final"
         }
     }
+}
+
+subprojects {
+    apply plugin: "java-library"
+    apply plugin: "io.spring.dependency-management"
 
     dependencies {
         implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
