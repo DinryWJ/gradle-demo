@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: test
+  cloud:
+    nacos:
+      server-addr: 172.16.13.104:8848
+      config:
+        file-extension: yaml
+      discovery:
+        server-addr: 172.16.13.104:8848
+  application:
+    name: userService
+server:
+  port: 8082
+
+grpc:
+  server:
+    port: 0

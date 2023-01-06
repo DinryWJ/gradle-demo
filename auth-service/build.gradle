@@ -1,0 +1,32 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+springBoot {
+    mainClass = "com.example.authservice.AuthServiceApplication"
+}
+
+archivesBaseName = "authService"
+
+dependencies {
+    implementation(project(":interface-service"))
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("net.devh:grpc-client-spring-boot-starter")
+    implementation("net.devh:grpc-server-spring-boot-autoconfigure")
+    implementation("org.springframework.cloud:spring-cloud-starter")
+    implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
+    implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config")
+    implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery")
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
+}
+
+
+test {
+    useJUnitPlatform()
+}
+
+build {
+    enabled = false
+}

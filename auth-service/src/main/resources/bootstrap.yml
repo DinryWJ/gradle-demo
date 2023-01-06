@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: test
+  cloud:
+    nacos:
+      server-addr: 172.16.13.104:8848
+      config:
+        file-extension: yaml
+      discovery:
+        server-addr: 172.16.13.104:8848
+  application:
+    name: authService
+server:
+  port: 8081
+
+grpc:
+  client:
+    userService:
+      negotiationType: plaintext

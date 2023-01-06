@@ -1,0 +1,31 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+springBoot {
+    mainClass = "com.example.gateway.Gateway"
+}
+
+archivesBaseName = "gateway"
+
+dependencies {
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.cloud:spring-cloud-starter-gateway")
+    implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
+    implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config")
+    implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery")
+    implementation("org.springframework.cloud:spring-cloud-loadbalancer")
+    implementation("io.netty:netty-all")
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
+
+}
+
+
+test {
+    useJUnitPlatform()
+}
+
+build {
+    enabled = false
+}
