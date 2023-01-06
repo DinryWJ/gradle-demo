@@ -12,9 +12,6 @@ jar {
 }
 
 allprojects {
-    apply plugin: "java-library"
-    apply plugin: "io.spring.dependency-management"
-
     group 'org.example'
     version '1.0-SNAPSHOT'
 
@@ -26,6 +23,11 @@ allprojects {
         maven { name "Alibaba"; url "https://maven.aliyun.com/repository/public" }
         mavenCentral()
     }
+}
+
+subprojects {
+    apply plugin: "java-library"
+    apply plugin: "io.spring.dependency-management"
 
     buildscript {
         ext {
@@ -40,21 +42,12 @@ allprojects {
         }
     }
 
-
     dependencies {
         implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
         implementation platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}")
         implementation platform("net.devh:grpc-client-spring-boot-starter:${grpcStarterVersion}")
         implementation platform("net.devh:grpc-server-spring-boot-autoconfigure:${grpcStarterVersion}")
         implementation platform('cn.hutool:hutool-core:5.8.11')
-
     }
 
-
-
 }
-
-
-
-
-
