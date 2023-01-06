@@ -12,6 +12,9 @@ jar {
 }
 
 allprojects {
+    apply plugin: "java-library"
+    apply plugin: 'maven-publish'
+
     group 'org.example'
     version '1.0-SNAPSHOT'
 
@@ -39,15 +42,20 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: "java-library"
-    apply plugin: "io.spring.dependency-management"
 
     dependencies {
         implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
         implementation platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}")
-        implementation platform("net.devh:grpc-client-spring-boot-starter:${grpcStarterVersion}")
-        implementation platform("net.devh:grpc-server-spring-boot-autoconfigure:${grpcStarterVersion}")
-        implementation platform('cn.hutool:hutool-core:5.8.11')
+    }
+
+    dependencies {
+        constraints {
+            implementation("org.projectlombok:lombok:1.18.24")
+            implementation('cn.hutool:hutool-core:5.8.11')
+            implementation("net.devh:grpc-client-spring-boot-starter:${grpcStarterVersion}")
+            implementation("net.devh:grpc-server-spring-boot-autoconfigure:${grpcStarterVersion}")
+
+        }
     }
 
 }

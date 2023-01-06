@@ -18,8 +18,9 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
     implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config")
     implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery")
-    compileOnly("org.projectlombok:lombok")
-    annotationProcessor("org.projectlombok:lombok")
+//
+//    compileOnly("org.projectlombok:lombok:")
+//    annotationProcessor("org.projectlombok:lombok")
 }
 
 
@@ -29,4 +30,16 @@ test {
 
 build {
     enabled = false
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.example'
+            artifactId = 'auth-service'
+            version = "${version}"
+
+            from components.java
+        }
+    }
 }
