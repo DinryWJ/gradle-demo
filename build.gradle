@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
 plugins {
     id 'java-library'
     id 'org.springframework.boot' version '2.6.11'
@@ -44,13 +46,15 @@ allprojects {
 subprojects {
 
     dependencies {
+        implementation platform(SpringBootPlugin.BOM_COORDINATES)
         implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
         implementation platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}")
     }
 
     dependencies {
         constraints {
-            implementation("org.projectlombok:lombok:1.18.24")
+            compileOnly("org.projectlombok:lombok:1.18.24")
+            annotationProcessor("org.projectlombok:lombok:1.18.24")
             implementation('cn.hutool:hutool-core:5.8.11')
             implementation("net.devh:grpc-client-spring-boot-starter:${grpcStarterVersion}")
             implementation("net.devh:grpc-server-spring-boot-autoconfigure:${grpcStarterVersion}")
