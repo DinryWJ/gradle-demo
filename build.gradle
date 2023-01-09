@@ -46,8 +46,11 @@ allprojects {
 subprojects {
 
     dependencies {
+        // Springboot parent包
         implementation platform(SpringBootPlugin.BOM_COORDINATES)
+        // SpringCloud pom依赖管理
         implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+        // SpringCloud alibaba依赖管理
         implementation platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}")
     }
 
