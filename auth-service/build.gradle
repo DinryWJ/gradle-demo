@@ -9,8 +9,8 @@ springBoot {
 archivesBaseName = "authService"
 
 dependencies {
-//    implementation(project(":interface-service"))
-    implementation("org.example:api:1.0-SNAPSHOT")
+    implementation(project(":interface-service"))
+//    implementation("org.example:api:1.0-SNAPSHOT")
     implementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("net.devh:grpc-client-spring-boot-starter")
