@@ -55,7 +55,9 @@ subprojects {
         }
         dependencies {
             dependency "org.projectlombok:lombok:1.18.24"
-            dependency "cn.hutool:hutool-core:5.8.11"
+            dependency("cn.hutool:hutool-all:5.8.11") {
+                exclude group: "cn.hutool", name: "hutool-aop"
+            }
             dependency "net.devh:grpc-client-spring-boot-starter:${grpcStarterVersion}"
             dependency "net.devh:grpc-server-spring-boot-autoconfigure:${grpcStarterVersion}"
         }
